@@ -1,0 +1,12 @@
+1. Added main menu settings auto re-loading on scene change
+2. Players count gets automatically updated on gamepads connect/disconnect (even between scenes)
+3. Fixed enemy damage on collision stay
+4. Fixed enemy spawns generation on 100% soft blocks spawn probability setting
+5. Added Y Axis Transparency Sort Mode for sorting sprites correctly
+6. Added local co-op
+7. Added damage feedback on gamepads
+8. Added Cinemachine target group camera
+9. Added Pause menu
+
+----------------------------------------
+1. Fix bombs interactions while sliding

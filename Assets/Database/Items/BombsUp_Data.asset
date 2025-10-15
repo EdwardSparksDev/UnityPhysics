@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bfad0c26aad9364ca37a53eda4869c0, type: 3}
+  m_Name: BombsUp_Data
+  m_EditorClassIdentifier: 
+  spt_ItemIcon: {fileID: 21300000, guid: b7bc09da1e91b0c4cbc7f1e8ac9521bd, type: 3}
+  speedIncrease: 0
+  bombsAmountIncrease: 1
+  blastRadiusIncrease: 0
+  enableBlastThroughSoftBlocks: 0
+  disableBlastThroughSoftBlocks: 0
+  maxLivesIncrease: 0
+  livesIncrease: 0
+  enableInvincibility: 0
+  invincibilityDuration: 0
+  ac_Collected: {fileID: 8300000, guid: 786133587b134e643a8a0daa39dd970e, type: 3}

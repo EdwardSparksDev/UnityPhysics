@@ -25,6 +25,7 @@ public class Bomb : MonoBehaviour, IDamageable
     float maxSlideDistance;
     float currentSlideDistance;
     bool freeSliding;
+    float slidingMinSpeedSqr;
     bool chained;
     #endregion
 
@@ -32,6 +33,7 @@ public class Bomb : MonoBehaviour, IDamageable
     [Header("Bomb")]
     [SerializeField] LayerMask collisionEnablerMask;
     [SerializeField] LayerMask slidingMask;
+    [SerializeField] float slidingMinSpeed;
     [SerializeField] float chainExplosionDelay;
 
     [Header("Explosion")]
@@ -49,20 +51,26 @@ public class Bomb : MonoBehaviour, IDamageable
         rb = GetComponent<Rigidbody2D>();
         col = GetComponent<CircleCollider2D>();
         source = GetComponent<AudioSource>();
+
+        slidingMinSpeedSqr = Mathf.Pow(slidingMinSpeed, 2f);
     }
 
 
     private void Update()
     {
-        if (freeSliding)
+        if (!freeSliding)
+            return;
+
+        currentSlideDistance = (contactPosition - transform.position).sqrMagnitude;
+        if (currentSlideDistance >= Mathf.Pow(maxSlideDistance, 2))
         {
-            currentSlideDistance = (contactPosition - transform.position).sqrMagnitude;
-            if (currentSlideDistance >= Mathf.Pow(maxSlideDistance, 2))
-            {
-                freeSliding = false;
-                rb.velocity = Vector3.zero;
-                rb.bodyType = RigidbodyType2D.Kinematic;
-            }
+            freeSliding = false;
+            rb.velocity = Vector3.zero;
+            rb.bodyType = RigidbodyType2D.Kinematic;
+        }
+        else if (rb.velocity.sqrMagnitude < slidingMinSpeedSqr)
+        {
+            rb.velocity = slidingMinSpeed * rb.velocity.normalized;
         }
     }
 

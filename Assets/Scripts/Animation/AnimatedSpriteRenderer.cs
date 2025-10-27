@@ -62,6 +62,9 @@ public class AnimatedSpriteRenderer : MonoBehaviour
     /// <param name="idle">Should the animation be set to idle</param>
     public void SetAnimationState(int index, bool idle = false)
     {
+        if (activeAnimIndex == index && this.idle == idle)
+            return;
+
         activeAnimIndex = index;
         animationFrame = 0;
         this.idle = idle;
